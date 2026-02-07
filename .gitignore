@@ -8,3 +8,11 @@ wheels/
 
 # Virtual environments
 .venv
+
+# Manim output
+media/
+*.log
+*.aux
+*.tex
+*.svg
+*.mp4
