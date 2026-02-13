@@ -1,14 +1,34 @@
 from manim import *
+#this code is horrible im sorry i am going to fix it
+config.assets_dir = "assets"
+config.background_color = BLACK
 
-class JustAnotherManimFile(Scene):
+class Hobbys(Scene):
     def construct(self):
 
-        box = Rectangle(stroke_color= GREEN, stroke_opacity= 0.2, width = 1, height= 1, fill_color= RED_B, fill_opacity= 0.2)
-
-        self.add(box)
-        self.play(box.animate.shift(RIGHT*2), run_time= 2)
-        self.play(box.animate.shift(UP*3), run_time= 2)
-        self.play(box.animate.shift(DOWN*5+LEFT*5), run_time=2)
-        self.play(box.animate.shift(UP*1.5+RIGHT*1), run_time=2)
+        t =SVGMobject(
+            "table-tennis",
+            fill_color=WHITE,
+        ).scale(0.7)
         
-        self.wait(1)
+        f =SVGMobject(
+            "football",
+            fill_color=WHITE
+        ).scale(0.7)
+
+        p =SVGMobject(
+            "programming",
+            fill_color=WHITE
+        ).scale(0.7)
+
+        hobbys = VGroup(t, f, p)
+        hobbys.arrange(buff = 1)
+        self.play(Write(hobbys, run_time=2))
+
+        text = Text(
+            "My Hobbys"
+        ).scale(1.2).move_to(DOWN*2)
+
+        self.play(Transform(hobbys, text))
+        self.play(Indicate(text[2:9], color=PURE_GREEN, run_time= 2))
+        
