@@ -1,34 +1,21 @@
 from manim import *
-#this code is horrible im sorry i am going to fix it
-config.assets_dir = "assets"
-config.background_color = BLACK
+#config.assets_dir = "assets"
+#↑ if you want to use svgs
+config.background_color = WHITE
 
-class Hobbys(Scene):
+class Productivity(Scene):
     def construct(self):
-
-        t =SVGMobject(
-            "table-tennis",
-            fill_color=WHITE,
-        ).scale(0.7)
         
-        f =SVGMobject(
-            "football",
-            fill_color=WHITE
-        ).scale(0.7)
+        t = Text("Productivity", font="Ashbury", weight=BOLD, font_size=48).set_color_by_gradient("#40c9ff", "#e81cff").scale(2)    
+        t2 = Text("But how do you achieve Productivity?", font="Ashbury", weight=BOLD, font_size=24).scale(1.3).set_color("#252526")
+        t2[3:6].set_color_by_gradient("#40c9ff", "#e81cff")
+        t2[-13:].set_color_by_gradient("#40c9ff", "#e81cff")
+        self.play(Write(t, run_time=3))
+        self.play(Transform(t, t2))
 
-        p =SVGMobject(
-            "programming",
-            fill_color=WHITE
-        ).scale(0.7)
-
-        hobbys = VGroup(t, f, p)
-        hobbys.arrange(buff = 1)
-        self.play(Write(hobbys, run_time=2))
-
-        text = Text(
-            "My Hobbys"
-        ).scale(1.2).move_to(DOWN*2)
-
-        self.play(Transform(hobbys, text))
-        self.play(Indicate(text[2:9], color=PURE_GREEN, run_time= 2))
+        t3 = Text("Do you need a new browser", font="Ashbury", weight=BOLD, font_size=24).scale(1.3).set_color("#252526")
+        t4 = Text("Or is it just a mindset", font="Ashbury", weight=BOLD, font_size=24).scale(1.3).set_color("#252526")
+        t3[-7:].set_color_by_gradient("#40c9ff", "#e81cff")
+        t4[-7:].set_color_by_gradient("#40c9ff", "#e81cff")
         
+        self.wait(4)
